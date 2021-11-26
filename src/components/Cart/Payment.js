@@ -6,8 +6,9 @@ import { Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap';
 
 //regEx for Card Validation
 const isCreditCardNumber = (value) => value.match(/^[0-9]+$/) && value.trim().length === 16;
+const isExpiry=(value)=>value.match(/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/);
 const isCreditCardCVV = (value) => value.match(/^[0-9]+$/) && value.trim().length === 3;
-const isNotEmpty = (value) => value.trim() !== '';
+
 
 const Payment = (props) => {  
    
@@ -33,7 +34,7 @@ const Payment = (props) => {
         hasError: creditCardExpiryHasError,
         valueChangeHandler: creditCardExpiryChangeHandler,
         inputBlurHandler: creditCardExpiryBlurHandler
-    } = useInput(isNotEmpty);
+    } = useInput(isExpiry);
     const {
         value: creditCardCVV,
         isValid: creditCardCVVIsValid,
@@ -86,7 +87,7 @@ const Payment = (props) => {
                 </Row>
                 <Row className="mb-3">
                     <Col>
-                        <FloatingLabel controlId="floatingInput" label="Expiry date*" >
+                        <FloatingLabel controlId="floatingInput" label="Expiry date*(MM/YY)" >
                             <Form.Control type="text" placeholder="Expiry Date" value={creditCardExpiry}
                                 onChange={creditCardExpiryChangeHandler}
                                 onBlur={creditCardExpiryBlurHandler} />
