@@ -1,8 +1,8 @@
-import  './mainHeader.scss';
 import React,{useContext} from 'react';
 import CartContext from '../../store/CartContext';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Container, Navbar, Nav} from 'react-bootstrap';
 import {FaCartArrowDown} from 'react-icons/fa';
+import  './mainHeader.scss';
 import { Link } from 'react-router-dom';
 const MainHeader = () => {
   const cartCtx = useContext(CartContext);
@@ -24,13 +24,9 @@ const MainHeader = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="me-auto"  >
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
-              <NavDropdown title="Shop" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#">Something</NavDropdown.Item>
-              </NavDropdown>
+              <Link to="/" className="nav-link">Home</Link>
+              <Link to="#" className="nav-link">About</Link>
+              <Link to="#" className="nav-link">Shop</Link>
             </Nav>
           </Navbar.Collapse>
             <Link to="/Cart" className="cart_button">

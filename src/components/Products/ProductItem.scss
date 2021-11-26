@@ -9,11 +9,17 @@
     }
     .text{
         h3{
-            font-size: 20px;
+            a{
+                color: $secondary-color;
+                font-size: 20px;
+            }
+        }
+        .price{
+            color: $secondary-color;
         }
         button{
             @include button;
             border: none;
         }
-    } 
+    }     
 } 

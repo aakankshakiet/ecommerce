@@ -1,14 +1,16 @@
 $primary-color:#b3ec49;
 $secondary-color:#7db80f;
 $dark-color:#42852e;
+
 @mixin button{
-    color: $secondary-color;
-    background-color: $primary-color;
+    color: $primary-color;
+    background-color: $secondary-color;
     border: none;
 
     &:hover,
-    &:active{
-      background-color: $secondary-color;
+    &:active,
+    &:focus{
+      background-color: $primary-color;
       color: #000;
       border: none;
     }

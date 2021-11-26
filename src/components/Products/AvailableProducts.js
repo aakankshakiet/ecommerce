@@ -1,73 +1,45 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import useHttp from '../CustomHook/useHttp';
+import { getAllProduct } from '../api';
 import ProductItem from './ProductItem';
-import { Container, Row, Col } from "react-bootstrap";
+import NotFound from '../Pages/NotFound';
 import './availableProduct.scss';
+import { Container, Row, Col } from "react-bootstrap";
 
 const AvailableProducts = () => {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [httpError, setHttpError] = useState(false);
+  const { sendRequest, status, data: LoadedProducts, error } = useHttp(
+    getAllProduct,
+    true
+  );
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(
-        'https://ab-company-a828d-default-rtdb.firebaseio.com/Products.json'
-      );
+    sendRequest();
+  }, [sendRequest]);
 
-      if (!response.ok) {
-        throw new Error('Something went wrong!');
-      }
-
-      const responseData = await response.json();
-
-      const loadedProducts = [];
-
-      for (const key in responseData) {
-        loadedProducts.push({
-          id: key,
-          title: responseData[key].title,
-          price: responseData[key].price,
-          main_image:responseData[key].image.main_img
-        });
-      }
-
-      setProducts(loadedProducts);
-      setIsLoading(false);
-    };
-
-    fetchProducts().catch((error) => {
-      setIsLoading(false);
-      setHttpError(error.message);
-    });
-  }, []);
-
-  
-
-  if (isLoading) {
+  if (status === 'pending') {
     return (
-      <section>
-        <p>Loading...</p>
-      </section>
+      <div >
+        <p>Pending...</p>
+      </div>
     );
   }
 
-  if (httpError) {
-    return (
-      <section>
-        <p>{httpError}</p>
-      </section>
-    );
+  if (error) {
+    return <p>{error}</p>;
   }
 
-  const productsList = products.map((product) => (
+  if (status === 'completed' && (!LoadedProducts || LoadedProducts.length === 0)) {
+    return <NotFound />;
+  }
+
+  const productsList = LoadedProducts.map((product) => (
       <ProductItem
         key={product.id}
         id={product.id}
         title={product.title}
         price={product.price}
-        main_image={product.main_image}
+        main_image={product.image.main_img}
       />
-    
   ));
 
   return (
@@ -75,7 +47,7 @@ const AvailableProducts = () => {
       <Container >
         <Row>
           <Col className="d-flex justify-content-center ">
-            <h3>Products</h3>
+            <h3 className="products_heading heading">Products</h3>
           </Col>
         </Row>
         <Row>

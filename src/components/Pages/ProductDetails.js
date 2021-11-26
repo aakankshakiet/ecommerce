@@ -53,12 +53,13 @@ const ProductDetails = () => {
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
     };
+    
     return (
         <>  
             <section className="product_details_section">
                 <Container>
                     <Row>
-                        <Col lg={6} className="d-flex flex-column justify-content-center align-items-center">
+                        <Col xm={6} className="d-flex flex-column justify-content-center align-items-center">
                             <Image className="title_image " src={loadedProduct.image.main_img} alt="product_image" fluid />
                             <Row>
                                 <Col>
@@ -106,22 +107,11 @@ const ProductDetails = () => {
                             </Row>
                         </Col>
                         <Col lg={6}>
-                            <h3>{loadedProduct.title}</h3>
-                            <p>rating</p>
-                            <p className="price"><span>Price:</span><span> &#8377;{loadedProduct.price}</span></p>
-                            <p>Description:</p>
+                            <h3 className="heading">{loadedProduct.title}</h3>
+                            <p className="price"><span>Price : </span><span> &#8377;{loadedProduct.price}</span></p>
+                            <p className="description_heading">Description : </p>
                             <p className="desciption">{loadedProduct.description}</p>
-                            <Row>
-                                <Col md={6}>
-                                    <select name="" id="" className="form-control">
-                                        <option value="">Small</option>
-                                        <option value="">Medium</option>
-                                        <option value="">Large</option>
-                                        <option value="">Extra Large</option>
-                                    </select>
-                                    <Button type="submit" onClick={addToCartHandler} >Add to Cart</Button>
-                                </Col>
-                            </Row>
+                            <Button type="submit" className="button" onClick={addToCartHandler} >Add to Cart</Button>
                         </Col>
                     </Row>
                 </Container>

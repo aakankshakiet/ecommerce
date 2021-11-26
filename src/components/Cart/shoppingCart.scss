@@ -1,0 +1,15 @@
+@import '../global.scss';
+
+.heading{
+    color: $dark-color;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid $dark-color;
+}
+
+.next_button ,.next_button:disabled{
+    @include button;
+}
+.next_button:disabled:active{
+    cursor:not-allowed;
+}

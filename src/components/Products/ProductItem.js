@@ -18,11 +18,9 @@ const ProductItem = (props) => {
 	};
 	return (
 		<> 
-		  <Col lg={3} md={6} className="d-flex justify-content-center">
+		<Col lg={3} md={6} className="d-flex justify-content-center">
 			<div className="product d-flex flex-column align-items-center">
-				<Link to="#" className="img-prod"><Image className="img-fluid" src={props.main_image} alt="product img" fluid/>
-				   <div className="overlay"></div>
-				</Link>
+				<Image  src={props.main_image} alt="product img" fluid/>
 				<div className=" text py-3 pb-4 px-3 ">
 					<h3><Link to={`/Products/${props.id}`} >{props.title}</Link></h3>
 					<div className="pricing text-center">
@@ -33,8 +31,7 @@ const ProductItem = (props) => {
 					</p>	
 				</div>
 			</div>
-
-		  </Col>
+		</Col>
 		</>
 	)
 };

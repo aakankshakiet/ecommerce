@@ -5,6 +5,7 @@ import './mainFooter.scss';
 
 
 const MainFooter = () => {
+    
     return (
         <>
             <footer className="footer"  >

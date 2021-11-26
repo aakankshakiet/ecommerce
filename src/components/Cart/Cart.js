@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Row, Col} from 'react-bootstrap';
 import ShoppingCart from './ShoppingCart';
+import './cart.scss';
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 
@@ -8,14 +9,15 @@ const Cart = () => {
   
   return (
     <>
-      <Container>
-        <Row>
-          <Col>
-            <ShoppingCart/>
-          </Col>
-          
-        </Row>
-      </Container>
+      <section className="cart_section">
+        <Container>
+          <Row>
+            <Col>
+              <ShoppingCart />
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </>
   )
 };

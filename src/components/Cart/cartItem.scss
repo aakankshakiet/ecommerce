@@ -2,3 +2,17 @@
 .cart_item_image{
     max-height: 200px;
 }
+.title{
+    color: $secondary-color;
+}
+.price{
+    color: $dark-color;
+    font-weight: 500;
+    font-size: 30px;
+}
+.items{
+    color: $dark-color;
+}
+.button{
+    @include button;
+}

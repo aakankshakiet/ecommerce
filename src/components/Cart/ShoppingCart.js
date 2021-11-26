@@ -1,4 +1,5 @@
 import React, {useState, useContext } from 'react';
+import './shoppingCart.scss';
 import CartItem from './CartItem';
 import ShippingDetails from './ShippingDetails'
 import CartContext from '../../store/CartContext';
@@ -9,7 +10,9 @@ import Summary from './Summary';
 const ShoppingCart=()=>{
     const [isShoppingDone,setIsShoppingDone]=useState(false);
     const cartCtx = useContext(CartContext);
+    
     const hasItems = cartCtx.items.length > 0;
+
     const cartItemRemoveHandler = (id) => {
       cartCtx.removeItem(id);
     };
@@ -27,7 +30,7 @@ const ShoppingCart=()=>{
       <>
           {!isShoppingDone && <>{hasItems && <><Row>
              <Col md={8}>
-              <h3>Shopping Cart</h3>
+              <h3 className="heading">Shopping Cart</h3>
               
               {cartCtx.items.map((item) => (
                 <CartItem
@@ -46,7 +49,7 @@ const ShoppingCart=()=>{
                <Summary/>
             </Col>
           </Row>
-          {hasItems &&<Button onClick={onShoppingDone}>Shipping-{`>`}</Button>}</>}</>}
+          {hasItems &&<Button className="next_button" onClick={onShoppingDone}>Shipping-{`>`}</Button>}</>}</>}
           {!hasItems && <p>No Item Is Selected</p>}
           {isShoppingDone && <ShippingDetails/>}
       </>
