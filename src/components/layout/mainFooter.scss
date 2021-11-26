@@ -1,0 +1,27 @@
+@import '../global.scss';
+p,ul{
+    margin-bottom: 0;
+}
+.footer{
+    background-color:$secondary-color;
+    color:$dark-color; 
+    font-weight: 700;
+}
+
+.footer-row{
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+}
+.footer-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    a{
+        text-decoration: none;
+        color:$dark-color;
+    }
+    li {
+        font-size: 20px;
+    }
+}

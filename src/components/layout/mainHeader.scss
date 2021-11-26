@@ -1,0 +1,37 @@
+@import '../global.scss';
+.main_nav{
+    background-color: $primary-color;
+}
+.navbar-light .navbar-nav .nav-link ,a{
+    color:#000;
+    font-weight: 600;
+}
+.cart_button{
+        text-decoration: none;
+        cursor: pointer;
+         background-color: $secondary-color;
+         color:#000;
+        padding: 10px 16px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 25px;
+        font-weight:600;
+        &:hover{
+            color: #000;
+            background-color: #42852e;
+        }
+}
+.cart_icon{
+    font-size: 22px;
+    margin-right: 0.5rem;
+}
+.cart_badge{
+    background-color: $primary-color;
+    padding: 0.25rem 1rem;
+    border-radius: 15px;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+
