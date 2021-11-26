@@ -50,7 +50,7 @@ const ShoppingCart=()=>{
             </Col>
           </Row>
           {hasItems &&<Button className="next_button" onClick={onShoppingDone}>Shipping-{`>`}</Button>}</>}</>}
-          {!hasItems && <p>No Item Is Selected</p>}
+          {!hasItems && <p>No Item In Cart</p>}
           {isShoppingDone && <ShippingDetails/>}
       </>
     )
