@@ -29,7 +29,7 @@ const MainHeader = () => {
               <Link to="#" className="nav-link">Shop</Link>
             </Nav>
           </Navbar.Collapse>
-            <Link to="/Cart" className="cart_button">
+            <Link to="/cart" className="cart_button">
               <span className="cart_icon"><FaCartArrowDown/></span>
               <span>Your Cart</span>
               <span className="cart_badge">{numberOfCartItems}</span>

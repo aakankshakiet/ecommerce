@@ -22,7 +22,7 @@ const ProductItem = (props) => {
 			<div className="product d-flex flex-column align-items-center">
 				<Image  src={props.main_image} alt="product img" fluid/>
 				<div className=" text py-3 pb-4 px-3 ">
-					<h3><Link to={`/Products/${props.id}`} >{props.title}</Link></h3>
+					<h3><Link to={`/products/${props.id}`} >{props.title}</Link></h3>
 					<div className="pricing text-center">
 					   <p className="price"><span>&#8377;{props.price}</span></p>
 					</div>

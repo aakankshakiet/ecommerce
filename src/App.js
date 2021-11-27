@@ -16,8 +16,8 @@ function App() {
         <MainHeader />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Products/:productId" element={<ProductDetails />} />
-          <Route path="/Cart" element={<Cart />} />
+          <Route path="/products/:productId" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <MainFooter />
