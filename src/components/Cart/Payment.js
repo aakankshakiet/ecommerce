@@ -83,7 +83,8 @@ const Payment = (props) => {
                         {creditCardNumberHasError && <p className="error">Please enter a Valid Credit Card Number(16 Digit)</p>}
                     </Col>
                 </Row>
-                <Row>
+
+                <Row className="mb-3">
                     <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="Expiry date*(MM/YY)" >
                             <Form.Control type="text" placeholder="Expiry Date" value={creditCardExpiry}

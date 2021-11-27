@@ -6,7 +6,7 @@ import Home from './components/Pages/Home';
 import ProductDetails from './components/Pages/ProductDetail/ProductDetails';
 import Cart from './components/Cart/Cart';
 import CartProvider from './store/CartProvider';
-import NotFound from './components/Pages/NotFound'
+import NotFound from './components/Pages/NotFound';
 
 
 function App() {

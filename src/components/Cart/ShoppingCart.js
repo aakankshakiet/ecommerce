@@ -59,6 +59,7 @@ const ShoppingCart=()=>{
         }
         {!hasItems && <p>No Item Is Selected</p>}
         {isShoppingDone && <ShippingDetails/>}
+          
       </>
     )
 };
