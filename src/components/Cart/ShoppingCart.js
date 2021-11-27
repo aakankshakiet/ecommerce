@@ -12,6 +12,7 @@ const ShoppingCart=()=>{
     const cartCtx = useContext(CartContext);
     
     const hasItems = cartCtx.items.length > 0;
+    console.log(hasItems);
 
     const cartItemRemoveHandler = (id) => {
       cartCtx.removeItem(id);
@@ -28,10 +29,13 @@ const ShoppingCart=()=>{
    
     return (
       <>
-          {!isShoppingDone && <>{hasItems && <><Row>
-             <Col md={8}>
+          {!isShoppingDone && 
+          <>
+          {hasItems && 
+          <>
+          <Row>
+            <Col md={8}>
               <h3 className="heading">Shopping Cart</h3>
-              
               {cartCtx.items.map((item) => (
                 <CartItem
                   key={item.id}
@@ -39,19 +43,22 @@ const ShoppingCart=()=>{
                   amount={item.amount}
                   price={item.price}
                   main_image={item.main_image}
-                  onRemove={cartItemRemoveHandler.bind(null, item.id)}
+                  onRemove={()=>{cartItemRemoveHandler(null,item.id)}}
                   onAdd={cartItemAddHandler.bind(null, item)}
                 />
               ))}
-              
             </Col>
             <Col md={4}>
                <Summary/>
             </Col>
           </Row>
-          {hasItems &&<Button className="next_button" onClick={onShoppingDone}>Shipping-{`>`}</Button>}</>}</>}
-          {!hasItems && <p>No Item Is Selected</p>}
-          {isShoppingDone && <ShippingDetails/>}
+          {hasItems && <Button className="next_button" onClick={onShoppingDone}>Shipping-{`>`}</Button>}
+          </>
+          }
+        </>
+        }
+        {!hasItems && <p>No Item Is Selected</p>}
+        {isShoppingDone && <ShippingDetails/>}
       </>
     )
 };

@@ -14,7 +14,7 @@ const isLastName = (value) => value.match(/^[a-zA-Z .'-]+$/);
 const isAddress = (value) => value.trim().length > 10;
 const isCity = (value) => value.match(/^[a-zA-Z-]+$/) && value.trim().length > 2;
 const isZip = (value) => value.match(/^[0-9]+$/) && value.trim().length === 6;
-const isPhone = (value) => value.match(/^[6-9]+[0-9]/) && value.trim().length === 10;
+export const isPhone = (value) => value.match(/^[6-9]+[0-9]/) && value.trim().length === 10;
 
 const ShippingAddress = () => {
     const [isOrderDone,setIsOrderDone]=useState(false);
@@ -124,8 +124,8 @@ const ShippingAddress = () => {
 
             {!isFormComplete && <Form onSubmit={onConfirmShippingDetails}>
                 <h3 className="heading">Shipping Details</h3>
-                <Row className="mb-3">
-                    <Col>
+                <Row >
+                    <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="First Name*" >
                             <Form.Control  type="text" placeholder="First Name"
                                 value={firstNameValue}
@@ -134,7 +134,7 @@ const ShippingAddress = () => {
                         </FloatingLabel>
                         {firstNameHasError && <p className='error'>Please enter a Valid First Name(minimum 3 character).</p>}
                     </Col>
-                    <Col>
+                    <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="Last Name*">
                             <Form.Control type="text" placeholder="Last Name"
                                 value={lastNameValue}
@@ -164,14 +164,14 @@ const ShippingAddress = () => {
                         {landmarkHasError && <p className='error'>Please enter a valid landmark(minimum 10 character).</p>}
                     </Col>
                 </Row>
-                <Row className="mb-3">
-                    <Col>
+                <Row>
+                    <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="State" >
                             <Form.Control type="text" placeholder="State" />
                         </FloatingLabel>
 
                     </Col>
-                    <Col>
+                    <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="City*">
                             <Form.Control type="text" placeholder="City"
                                 value={cityValue}
@@ -181,8 +181,8 @@ const ShippingAddress = () => {
                         {cityHasError && <p className='error'>Please enter a valid City Name.</p>}
                     </Col>
                 </Row>
-                <Row className="mb-3">
-                    <Col>
+                <Row >
+                    <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="Zip/Postal Code*" >
                             <Form.Control type="number" placeholder="Zip/Postal Code"
                                 value={zipCodeValue}
@@ -191,7 +191,7 @@ const ShippingAddress = () => {
                         </FloatingLabel>
                         {zipCodeHasError && <p className='error'>Please enter a valid zip code(6 Digit).</p>}
                     </Col>
-                    <Col>
+                    <Col md={6} className="mb-3">
                         <FloatingLabel controlId="floatingInput" label="Phone Number*">
                             <Form.Control type="number" placeholder="Phone Number"
                                 value={phoneValue}

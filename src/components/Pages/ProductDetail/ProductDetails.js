@@ -1,10 +1,11 @@
 import React, { useState,useEffect ,useContext} from "react";
-import CartContext from "../../store/CartContext";
+import CartContext from "../../../store/CartContext";
 import {Link,useParams} from 'react-router-dom';
-import useHttp from "../CustomHook/useHttp";
-import { getSingleProduct } from "../api";
+import useHttp from "../../CustomHook/useHttp";
+import { getSingleProduct } from "../../api";
 import './productDetails.scss';
 import { Container, Row, Col, Carousel, Button,Image } from "react-bootstrap";
+import Review from "./Review/Review";
 
 const ProductDetails = () => {
     const [index, setIndex] = useState(0);
@@ -31,7 +32,7 @@ const ProductDetails = () => {
     
       useEffect(() => {
         sendRequest(productId);
-      }, [sendRequest, productId]);
+      },[sendRequest,productId]);
     
       if (status === 'pending') {
         return (
@@ -66,7 +67,7 @@ const ProductDetails = () => {
                                     <Carousel activeIndex={index} onSelect={handleSelect}>
                                         <Carousel.Item>
                                             <Row className="thumbnail_images">
-                                                <Col sm={4} className="d-flex align-items-center">
+                                                <Col sm={4} className="d-flex align-items-center img_col">
                                                     <Link to="#">
                                                         <Image src={loadedProduct.image.thumbnail1} alt="Product Image 1" thumbnail />
                                                     </Link>
@@ -114,6 +115,7 @@ const ProductDetails = () => {
                             <Button type="submit" className="button" onClick={addToCartHandler} >Add to Cart</Button>
                         </Col>
                     </Row>
+                    <Review/>
                 </Container>
             </section>
         </>
