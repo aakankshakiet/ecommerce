@@ -12,7 +12,7 @@ const ShoppingCart=()=>{
     const cartCtx = useContext(CartContext);
     
     const hasItems = cartCtx.items.length > 0;
-    console.log(hasItems);
+    
 
     const cartItemRemoveHandler = (id) => {
       cartCtx.removeItem(id);
@@ -43,7 +43,7 @@ const ShoppingCart=()=>{
                   amount={item.amount}
                   price={item.price}
                   main_image={item.main_image}
-                  onRemove={()=>{cartItemRemoveHandler(null,item.id)}}
+                  onRemove={cartItemRemoveHandler.bind(null,item.id)}
                   onAdd={cartItemAddHandler.bind(null, item)}
                 />
               ))}

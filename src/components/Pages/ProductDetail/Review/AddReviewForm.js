@@ -5,7 +5,7 @@ import { Form, FloatingLabel} from "react-bootstrap";
 import './addReviewForm.scss';
 import Rating from "./Rating";
 
-const isEmail = (value) => value.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})/);
+const isEmail = (value) => value.match(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})/);
 const isNotEmpty = (value) => value.trim() !== '';
 const AddReviewForm = (props) => {
     const {

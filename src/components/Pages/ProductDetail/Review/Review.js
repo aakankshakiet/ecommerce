@@ -10,11 +10,7 @@ const Review=()=>{
     return (
       <> 
       <h3>Review</h3>
-      {/* <Row>
-        <Col md={6}> */}
-           <AddReviewForm onDisplay={onReview} />
-        {/* </Col>
-      </Row> */}
+      <AddReviewForm onDisplay={onReview} />
       </>
     );
 };
