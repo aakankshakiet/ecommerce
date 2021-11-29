@@ -5,7 +5,7 @@ const Summary=(props)=>{
     const {totalAmount}=useContext(CartContext);
 
     // static  value 15 is for tax
-    const totalbill=totalAmount-15;
+    const totalbill=totalAmount+15;
 
    return(
        <>
